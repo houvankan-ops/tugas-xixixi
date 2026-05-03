@@ -1,0 +1,2526 @@
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Kisah Kita</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Cinzel:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* =========================================================
+RESET
+========================================================= */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+font-family:'Poppins',sans-serif;
+background:#050505;
+color:white;
+overflow:hidden;
+}
+
+/* =========================================================
+BACKGROUND VIDEO
+========================================================= */
+
+.video-bg{
+position:fixed;
+inset:0;
+z-index:-20;
+overflow:hidden;
+}
+
+.video-bg video{
+width:100%;
+height:100%;
+object-fit:cover;
+
+filter:
+brightness(.22)
+saturate(1.2)
+blur(1px);
+
+transform:scale(1.05);
+}
+
+/* =========================================================
+OVERLAY
+========================================================= */
+
+.overlay{
+position:fixed;
+inset:0;
+z-index:-15;
+
+background:
+radial-gradient(circle at top,
+rgba(255,170,210,.16),
+transparent 35%),
+
+linear-gradient(
+to bottom,
+rgba(0,0,0,.15),
+rgba(0,0,0,.94)
+);
+}
+
+/* =========================================================
+LIGHT EFFECT
+========================================================= */
+
+.light{
+position:fixed;
+width:420px;
+height:420px;
+border-radius:50%;
+filter:blur(110px);
+opacity:.22;
+z-index:-10;
+animation:float 10s ease-in-out infinite;
+}
+
+.light.one{
+top:-120px;
+left:-120px;
+background:#ff82b7;
+}
+
+.light.two{
+right:-120px;
+bottom:-120px;
+background:#ffd5ea;
+animation-delay:2s;
+}
+
+@keyframes float{
+
+0%{
+transform:translateY(0);
+}
+
+50%{
+transform:translateY(-35px);
+}
+
+100%{
+transform:translateY(0);
+}
+
+}
+
+/* =========================================================
+MAIN PAGE
+========================================================= */
+
+.main-page{
+width:100%;
+height:100vh;
+
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+
+text-align:center;
+padding:30px;
+}
+
+.main-title{
+
+font-family:'Cinzel',serif;
+
+font-size:
+clamp(3.5rem,9vw,7rem);
+
+letter-spacing:16px;
+
+font-weight:500;
+
+animation:fadeUp 1.8s ease;
+
+text-shadow:
+0 0 40px rgba(255,255,255,.08);
+}
+
+.main-subtitle{
+
+margin-top:35px;
+
+width:min(780px,92%);
+
+line-height:2.3;
+
+color:rgba(255,255,255,.78);
+
+animation:fadeUp 2.5s ease;
+}
+
+.start-btn{
+
+margin-top:55px;
+
+padding:18px 48px;
+
+border:none;
+border-radius:100px;
+
+cursor:pointer;
+
+font-weight:600;
+letter-spacing:2px;
+
+background:
+linear-gradient(
+135deg,
+#ffd8ea,
+#ff8fbc
+);
+
+color:#111;
+
+transition:.4s;
+
+box-shadow:
+0 20px 60px rgba(255,150,210,.25);
+
+animation:fadeUp 3s ease;
+}
+
+.start-btn:hover{
+
+transform:
+translateY(-4px)
+scale(1.03);
+
+box-shadow:
+0 25px 70px rgba(255,150,210,.35);
+}
+
+/* =========================================================
+FLOATING MUSIC BUTTON
+========================================================= */
+
+.music-floating{
+
+position:fixed;
+
+left:22px;
+bottom:22px;
+
+z-index:999;
+
+display:flex;
+align-items:center;
+gap:14px;
+
+padding:14px 18px;
+
+border-radius:100px;
+
+background:
+rgba(255,255,255,.08);
+
+border:
+1px solid rgba(255,255,255,.08);
+
+backdrop-filter:blur(20px);
+
+box-shadow:
+0 10px 40px rgba(0,0,0,.35);
+}
+
+.music-floating button{
+
+width:48px;
+height:48px;
+
+border:none;
+border-radius:50%;
+
+cursor:pointer;
+
+background:white;
+color:black;
+
+font-size:1rem;
+
+transition:.3s;
+}
+
+.music-floating button:hover{
+transform:scale(1.08);
+}
+
+.music-floating span{
+color:rgba(255,255,255,.82);
+}
+
+/* =========================================================
+PASSWORD PAGE
+========================================================= */
+
+.password-page{
+
+position:fixed;
+inset:0;
+
+display:none;
+justify-content:center;
+align-items:center;
+
+z-index:100;
+
+padding:25px;
+
+background:
+rgba(0,0,0,.58);
+
+backdrop-filter:blur(15px);
+}
+
+.password-box{
+
+width:min(560px,95%);
+
+padding:50px;
+
+border-radius:38px;
+
+background:
+linear-gradient(
+145deg,
+rgba(255,255,255,.09),
+rgba(255,255,255,.03)
+);
+
+border:
+1px solid rgba(255,255,255,.08);
+
+backdrop-filter:blur(20px);
+
+text-align:center;
+
+animation:smoothShow 1s ease;
+}
+
+.password-box h2{
+
+font-family:'Cinzel',serif;
+
+font-size:2.4rem;
+}
+
+.password-box p{
+
+margin-top:26px;
+
+line-height:2.15;
+
+color:rgba(255,255,255,.74);
+}
+
+.password-box input{
+
+width:100%;
+
+margin-top:34px;
+
+padding:18px;
+
+border:none;
+outline:none;
+
+border-radius:18px;
+
+text-align:center;
+
+font-size:1rem;
+
+background:
+rgba(255,255,255,.08);
+
+color:white;
+}
+
+.password-box button{
+
+width:100%;
+
+margin-top:18px;
+
+padding:17px;
+
+border:none;
+
+border-radius:18px;
+
+cursor:pointer;
+
+font-weight:600;
+
+background:
+linear-gradient(
+135deg,
+#ffd8ea,
+#ff92bf
+);
+
+color:black;
+
+transition:.35s;
+}
+
+.password-box button:hover{
+transform:translateY(-2px);
+}
+
+.result{
+margin-top:18px;
+min-height:24px;
+color:#ffd6e8;
+}
+
+/* =========================================================
+STORY PAGE
+========================================================= */
+
+.story-page{
+
+position:fixed;
+inset:0;
+
+display:none;
+justify-content:center;
+align-items:center;
+
+z-index:200;
+
+padding:30px;
+
+background:
+rgba(0,0,0,.58);
+
+backdrop-filter:blur(12px);
+}
+
+.story-box{
+width:min(900px,95%);
+text-align:center;
+}
+
+.story-text{
+
+font-size:
+clamp(1.7rem,3vw,2.8rem);
+
+line-height:2.3;
+
+font-weight:300;
+
+opacity:0;
+
+transform:translateY(30px);
+
+transition:
+opacity 1.5s ease,
+transform 1.5s ease;
+}
+
+.story-text.show{
+opacity:1;
+transform:translateY(0);
+}
+
+/* =========================================================
+MENU PAGE
+========================================================= */
+
+.menu-page{
+
+position:fixed;
+inset:0;
+
+display:none;
+justify-content:center;
+align-items:center;
+
+z-index:300;
+
+padding:35px;
+
+background:
+rgba(0,0,0,.55);
+
+backdrop-filter:blur(12px);
+}
+
+.menu-wrapper{
+width:min(1300px,100%);
+}
+
+.menu-title{
+
+text-align:center;
+
+margin-bottom:55px;
+
+font-size:
+clamp(2.7rem,5vw,4.8rem);
+
+font-family:'Cinzel',serif;
+
+letter-spacing:8px;
+}
+
+.menu-grid{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(280px,1fr));
+
+gap:28px;
+}
+
+.menu-card{
+
+height:340px;
+
+border-radius:34px;
+
+overflow:hidden;
+
+position:relative;
+
+cursor:pointer;
+
+background:
+linear-gradient(
+145deg,
+rgba(255,255,255,.08),
+rgba(255,255,255,.03)
+);
+
+border:
+1px solid rgba(255,255,255,.08);
+
+backdrop-filter:blur(20px);
+
+transition:.55s;
+}
+
+.menu-card:hover{
+
+transform:
+translateY(-8px)
+scale(1.02);
+
+box-shadow:
+0 20px 70px rgba(255,160,210,.14);
+}
+
+.menu-inner{
+
+position:absolute;
+inset:0;
+
+display:flex;
+justify-content:flex-end;
+flex-direction:column;
+
+padding:35px;
+}
+
+.menu-inner h3{
+
+font-size:2rem;
+
+font-family:'Cinzel',serif;
+}
+
+.menu-inner p{
+
+margin-top:14px;
+
+line-height:2;
+
+color:rgba(255,255,255,.72);
+}
+
+/* =========================================================
+MUSIC PAGE
+========================================================= */
+
+.music-page{
+
+position:fixed;
+inset:0;
+
+z-index:400;
+
+display:none;
+flex-direction:column;
+
+overflow-y:auto;
+
+background:
+linear-gradient(
+to bottom,
+rgba(8,8,8,.82),
+rgba(0,0,0,.96)
+);
+
+backdrop-filter:blur(18px);
+}
+
+.music-page::-webkit-scrollbar{
+width:0;
+}
+
+/* =========================================================
+BACK BTN
+========================================================= */
+
+.back-btn{
+
+position:fixed;
+
+top:24px;
+right:24px;
+
+z-index:999;
+
+border:none;
+
+padding:14px 24px;
+
+border-radius:100px;
+
+cursor:pointer;
+
+background:
+rgba(255,255,255,.08);
+
+color:white;
+
+backdrop-filter:blur(15px);
+
+transition:.35s;
+}
+
+.back-btn:hover{
+
+background:
+rgba(255,255,255,.16);
+}
+
+/* =========================================================
+HEADER
+========================================================= */
+
+.music-header{
+
+text-align:center;
+
+padding-top:80px;
+padding-inline:20px;
+}
+
+.music-header h1{
+
+font-size:
+clamp(2.8rem,6vw,5rem);
+
+font-family:'Cinzel',serif;
+
+letter-spacing:8px;
+}
+
+.music-header p{
+
+margin:auto;
+margin-top:24px;
+
+width:min(760px,92%);
+
+line-height:2.2;
+
+color:rgba(255,255,255,.74);
+}
+
+/* =========================================================
+SONG GRID
+========================================================= */
+
+.music-grid{
+
+width:100%;
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(340px,1fr));
+
+gap:30px;
+
+padding:
+60px
+45px
+120px;
+}
+
+/* =========================================================
+SONG CARD
+========================================================= */
+
+.song-card{
+
+position:relative;
+
+border-radius:36px;
+
+overflow:hidden;
+
+background:
+linear-gradient(
+145deg,
+rgba(255,255,255,.10),
+rgba(255,255,255,.03)
+);
+
+border:
+1px solid rgba(255,255,255,.08);
+
+backdrop-filter:blur(22px);
+
+padding:24px;
+
+transition:.45s;
+}
+
+.song-card:hover{
+
+transform:
+translateY(-8px);
+
+box-shadow:
+0 20px 70px rgba(255,150,210,.12);
+}
+
+.song-cover{
+
+position:relative;
+
+width:100%;
+aspect-ratio:1/1;
+
+border-radius:28px;
+
+overflow:hidden;
+}
+
+.song-cover img{
+
+width:100%;
+height:100%;
+
+object-fit:cover;
+
+transition:1s;
+}
+
+.song-card:hover img{
+transform:scale(1.04);
+}
+
+.song-overlay{
+
+position:absolute;
+inset:0;
+
+background:
+linear-gradient(
+to top,
+rgba(0,0,0,.65),
+transparent 50%
+);
+}
+
+.song-glow{
+position:absolute;
+inset:0;
+box-shadow:
+inset 0 -120px 120px rgba(0,0,0,.45);
+}
+
+.song-info{
+margin-top:22px;
+}
+
+.song-info h2{
+
+font-size:1.7rem;
+
+line-height:1.3;
+}
+
+.song-info span{
+color:rgba(255,255,255,.65);
+}
+
+.song-desc{
+
+margin-top:18px;
+
+line-height:2;
+
+color:rgba(255,255,255,.76);
+
+font-style:italic;
+}
+
+.song-quote{
+
+margin-top:20px;
+
+padding-left:14px;
+
+border-left:
+2px solid rgba(255,255,255,.12);
+
+line-height:2;
+
+color:rgba(255,255,255,.55);
+}
+
+/* =========================================================
+PLAYER
+========================================================= */
+
+.player{
+
+margin-top:24px;
+
+padding:16px;
+
+border-radius:24px;
+
+background:
+rgba(255,255,255,.05);
+
+border:
+1px solid rgba(255,255,255,.05);
+}
+
+.player-top{
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+margin-bottom:14px;
+}
+
+.player-left{
+
+display:flex;
+align-items:center;
+gap:12px;
+}
+
+.small-cover{
+
+width:54px;
+height:54px;
+
+border-radius:16px;
+
+overflow:hidden;
+}
+
+.small-cover img{
+
+width:100%;
+height:100%;
+
+object-fit:cover;
+}
+
+.player-text h4{
+font-size:.95rem;
+}
+
+.player-text p{
+
+font-size:.82rem;
+
+color:rgba(255,255,255,.55);
+}
+
+.like-btn{
+
+width:42px;
+height:42px;
+
+border:none;
+border-radius:50%;
+
+cursor:pointer;
+
+background:
+rgba(255,255,255,.08);
+
+color:white;
+
+transition:.3s;
+}
+
+.like-btn:hover{
+transform:scale(1.08);
+}
+
+audio{
+width:100%;
+height:38px;
+filter:invert(1);
+opacity:.9;
+}
+
+/* =========================================================
+ANIMATION
+========================================================= */
+
+@keyframes fadeUp{
+
+from{
+opacity:0;
+transform:translateY(30px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+@keyframes smoothShow{
+
+from{
+opacity:0;
+transform:scale(1.03);
+filter:blur(10px);
+}
+
+to{
+opacity:1;
+transform:scale(1);
+filter:blur(0);
+}
+
+}
+
+/* =========================================================
+MOBILE
+========================================================= */
+
+@media(max-width:768px){
+
+body{
+overflow:auto;
+}
+
+.music-grid{
+grid-template-columns:1fr;
+padding:40px 18px 120px;
+}
+
+.song-card{
+padding:18px;
+}
+
+.main-title{
+letter-spacing:8px;
+}
+
+.music-floating{
+left:12px;
+bottom:12px;
+}
+
+.password-box{
+padding:35px 24px;
+}
+
+.back-btn{
+top:14px;
+right:14px;
+}
+
+}
+
+
+/* =========================================================
+SKIP BUTTON STORY
+========================================================= */
+.skip-corner {
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    padding: 12px 26px;
+    border: none;
+    border-radius: 50px;
+    background: rgba(255,255,255,0.08);
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    z-index: 9999;
+    backdrop-filter: blur(12px);
+    transition: all 0.4s ease;
+    opacity: 0.85;
+}
+
+.skip-corner:hover {
+    background: rgba(255, 140, 190, 0.25);
+    transform: scale(1.08);
+    opacity: 1;
+}
+
+/* Efek tambahan biar lebih soft */
+.skip-corner:active {
+    transform: scale(0.95);
+}
+
+
+/* =========================================================
+SECRET PAGE FINAL
+========================================================= */
+
+.secret-page{
+position:fixed;
+inset:0;
+z-index:500;
+
+display:none;
+justify-content:center;
+align-items:center;
+
+background:
+linear-gradient(to bottom, rgba(10,10,10,.85), rgba(0,0,0,.95));
+
+backdrop-filter:blur(18px);
+}
+
+.secret-box{
+width:min(600px,95%);
+padding:45px;
+border-radius:35px;
+
+background:linear-gradient(145deg,rgba(255,255,255,.08),rgba(255,255,255,.03));
+border:1px solid rgba(255,255,255,.08);
+
+text-align:center;
+animation:smoothShow 1s ease;
+}
+
+.secret-title{
+font-family:'Cinzel',serif;
+font-size:2.2rem;
+margin-bottom:15px;
+}
+
+.secret-sub{
+color:rgba(255,255,255,.7);
+line-height:2;
+margin-bottom:25px;
+}
+
+.secret-input{
+width:100%;
+padding:16px;
+border:none;
+border-radius:16px;
+background:rgba(255,255,255,.08);
+color:white;
+text-align:center;
+}
+
+.secret-btn{
+margin-top:15px;
+padding:14px 28px;
+border:none;
+border-radius:100px;
+cursor:pointer;
+font-weight:600;
+
+background:linear-gradient(135deg,#ffd8ea,#ff8fbc);
+color:#111;
+}
+
+.choice-box{
+margin-top:30px;
+display:none;
+}
+
+.choice-text{
+font-size:1.3rem;
+line-height:2;
+margin-bottom:20px;
+}
+
+.choice-buttons{
+display:flex;
+justify-content:center;
+gap:20px;
+}
+
+.yes-btn,.no-btn{
+padding:12px 24px;
+border:none;
+border-radius:100px;
+cursor:pointer;
+font-weight:600;
+transition:.3s;
+}
+
+.yes-btn{
+background:#ff8fbc;
+color:white;
+}
+
+.no-btn{
+background:rgba(255,255,255,.08);
+color:white;
+}
+
+/* tombol NO kabur */
+.no-btn:hover{
+transform:translate(60px,-20px);
+}
+
+.secret-gif{
+display:none;
+margin-top:20px;
+width:150px;
+border-radius:20px;
+}
+
+.secret-result{
+margin-top:20px;
+font-style:italic;
+color:rgba(255,255,255,.75);
+}
+
+#secretGif{
+transition: opacity 0.3s ease;
+opacity: 1;
+}
+
+body{
+font-family: Arial;
+background:#0f0f0f;
+color:white;
+margin:0;
+}
+
+.page{
+display:none;
+padding:20px;
+animation: fade 0.3s ease;
+}
+
+.page.active{
+display:block;
+}
+
+@keyframes fade{
+from{opacity:0; transform:translateY(10px);}
+to{opacity:1; transform:translateY(0);}
+}
+
+.subtitle{
+font-size:14px;
+opacity:0.8;
+margin:10px 0;
+}
+
+button{
+padding:10px 15px;
+margin:5px;
+border:none;
+border-radius:10px;
+cursor:pointer;
+}
+
+#secretGif{
+width:150px;
+transition:0.3s ease;
+opacity:1;
+}
+
+.page{
+display:none;
+}
+
+.page.active{
+display:block;
+}
+
+#secretGif{
+transition: opacity 0.3s ease;
+opacity:1;
+}
+
+/* Pastikan halaman secret selalu di atas */
+#secretPage {
+    z-index: 1000 !important;
+}
+
+/* Pastikan video background tidak menghalangi klik */
+.video-bg, .overlay, .light {
+    pointer-events: none;
+}
+
+/* Biar tombol di dalam page tetap bisa diklik */
+.secret-box, .menu-card, .back-btn {
+    pointer-events: auto;
+}
+
+/* Container Utama */
+.streaming-container {
+    width: 100%;
+    max-width: 1000px;
+    padding: 40px 20px;
+    text-align: left;
+}
+
+.stream-title {
+    font-family: 'Cinzel', serif;
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+    color: #ffd8ea;
+    letter-spacing: 2px;
+}
+
+/* Grid Poster Mini */
+.movie-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 30px;
+}
+
+.movie-card {
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.poster-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 2/3;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.poster-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.5s;
+}
+
+/* Hover Effect ala Disney+ */
+.movie-card:hover { transform: translateY(-10px); }
+.movie-card:hover .poster-wrapper {
+    border: 2px solid #ff8fbc;
+    box-shadow: 0 0 25px rgba(255, 143, 188, 0.4);
+}
+.movie-card:hover img { transform: scale(1.1); filter: brightness(0.4); }
+
+.play-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: 0.3s;
+}
+.movie-card:hover .play-overlay { opacity: 1; }
+
+.play-icon {
+    width: 50px;
+    height: 50px;
+    background: #ff8fbc;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    font-size: 1.2rem;
+}
+
+.movie-detail h3 { font-size: 0.95rem; margin-top: 12px; font-weight: 600; }
+.movie-detail p { font-size: 0.75rem; opacity: 0.6; }
+
+/* MODAL VIDEO MASTERPIECE */
+.modal-video {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.modal-bg {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.95);
+    backdrop-filter: blur(10px);
+}
+
+.modal-content {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    background: #111;
+    border-radius: 20px;
+    overflow: hidden;
+    animation: zoomIn 0.4s ease;
+    border: 1px solid rgba(255,143,188,0.2);
+}
+
+.video-frame { width: 100%; aspect-ratio: 16/9; background: #000; }
+.video-frame video { width: 100%; height: 100%; }
+
+.modal-info { padding: 25px; text-align: left; background: #111; }
+.modal-info h2 { color: #ff8fbc; font-size: 1.5rem; margin-bottom: 5px; }
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 35px;
+    color: white;
+    cursor: pointer;
+    z-index: 10;
+}
+
+@keyframes zoomIn {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+
+/* Container */
+.streaming-container { width: 100%; max-width: 1100px; padding: 40px 20px; text-align: left; margin: 0 auto; }
+.stream-title { font-family: 'Cinzel', serif; font-size: 1.8rem; margin-bottom: 30px; color: #ffd8ea; letter-spacing: 2px; }
+
+/* Grid dengan 5 kolom pada layar besar */
+.movie-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 25px; }
+
+/* Desain Kartu Film */
+.movie-card { cursor: pointer; transition: 0.4s ease; }
+.poster-wrapper { position: relative; aspect-ratio: 2/3; border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); background: #1a1a1a; }
+.poster-wrapper img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+
+/* Efek Hover */
+.movie-card:hover { transform: scale(1.05); }
+.movie-card:hover .poster-wrapper { border: 2px solid #ff8fbc; box-shadow: 0 0 20px rgba(255, 143, 188, 0.4); }
+.movie-card:hover img { filter: brightness(0.4); }
+
+.play-overlay { position: absolute; inset: 0; display: flex; justify-content: center; align-items: center; opacity: 0; transition: 0.3s; }
+.movie-card:hover .play-overlay { opacity: 1; }
+.play-icon { width: 45px; height: 45px; background: #ff8fbc; border-radius: 50%; display: flex; justify-content: center; align-items: center; color: #000; font-size: 1.2rem; }
+
+/* Detail Teks */
+.movie-detail h3 { font-size: 0.9rem; margin-top: 12px; color: #fff; }
+.movie-detail p { font-size: 0.75rem; opacity: 0.6; }
+
+/* Modal Trailer Masterpiece */
+.modal-video { display: none; position: fixed; inset: 0; z-index: 9999; justify-content: center; align-items: center; padding: 20px; }
+.modal-bg { position: absolute; inset: 0; background: rgba(0,0,0,0.9); backdrop-filter: blur(8px); }
+.modal-content { position: relative; width: 100%; max-width: 800px; background: #111; border-radius: 20px; overflow: hidden; border: 1px solid rgba(255,143,188,0.2); animation: fadeInUp 0.4s ease; }
+.video-frame video { width: 100%; aspect-ratio: 16/9; background: #000; display: block; }
+.modal-info { padding: 25px; text-align: left; }
+.badge { display: inline-block; padding: 3px 12px; background: #ff8fbc; color: #000; border-radius: 5px; font-size: 0.7rem; font-weight: bold; margin-bottom: 10px; }
+
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+
+/* --- PENGUNCI LAYAR (ANTI-TUMPUK) --- */
+.galeri-layar-penuh {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #080808; /* Warna hitam elegan pekat agar menu tertutup */
+    z-index: 999999; /* Super duper tinggi, pasti paling depan! */
+    overflow-y: auto; /* Bisa discroll ke bawah */
+    display: none; /* Tersembunyi sebelum dipanggil */
+}
+
+/* Tombol Kembali Spesial Galeri */
+.galeri-tombol-kembali {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: transparent;
+    color: #ff8fbc;
+    border: 1px solid #ff8fbc;
+    padding: 8px 18px;
+    border-radius: 20px;
+    cursor: pointer;
+    z-index: 1000000;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+.galeri-tombol-kembali:hover { background: #ff8fbc; color: #000; }
+
+/* Layout Konten */
+.galeri-konten-utama { width: 100%; max-width: 1000px; margin: 80px auto 50px auto; text-align: center; padding: 0 20px; }
+.galeri-judul-indah { font-family: 'Cinzel', serif; font-size: 2.5rem; color: #ff8fbc; margin-bottom: 10px; letter-spacing: 2px; }
+.galeri-subjudul { color: #fff; opacity: 0.6; font-size: 0.9rem; margin-bottom: 50px; }
+
+/* Grid Susunan Foto */
+.galeri-susunan-foto { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 40px; }
+
+/* Desain Bingkai Polaroid Estetik */
+.galeri-bingkai-manis {
+    background: #fff;
+    padding: 12px 12px 40px 12px;
+    border-radius: 2px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+}
+
+.galeri-tempat-foto { width: 100%; aspect-ratio: 3/4; overflow: hidden; background: #eee; border: 1px solid #ddd; }
+.galeri-tempat-foto img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; filter: brightness(0.95); }
+
+.galeri-teks-bawah { font-family: 'Caveat', cursive, 'Poppins', sans-serif; font-size: 1.3rem; color: #222; margin-top: 15px; font-weight: bold; }
+
+/* Posisi Miring yang Bikin Salting */
+.miring-kiri { transform: rotate(-3deg); }
+.miring-kanan { transform: rotate(4deg); }
+.miring-kiri-dikit { transform: rotate(-1.5deg); }
+.miring-kanan-dikit { transform: rotate(2deg); }
+
+/* Efek Saat Disentuh (Glow Pink) */
+.galeri-bingkai-manis:hover {
+    transform: rotate(0deg) scale(1.05) translateY(-10px);
+    box-shadow: 0 15px 40px rgba(255, 143, 188, 0.4);
+    z-index: 10;
+}
+.galeri-bingkai-manis:hover .galeri-tempat-foto img { transform: scale(1.08); filter: brightness(1.1); }
+
+</style>
+</head>
+
+<body>
+
+<!-- =========================================================
+BACKGROUND
+========================================================= -->
+
+<div class="video-bg">
+
+<video autoplay muted loop playsinline id="bgVideo">
+
+<source src="up.mp4" type="video/mp4">
+
+</video>
+
+</div>
+
+<div class="overlay"></div>
+
+<div class="light one"></div>
+<div class="light two"></div>
+
+<!-- =========================================================
+FLOATING MUSIC
+========================================================= -->
+
+<div class="music-floating">
+
+<button id="musicBtn">
+▶
+</button>
+
+<span>
+music for tonight
+</span>
+
+</div>
+
+<!-- =========================================================
+MAIN PAGE
+========================================================= -->
+
+<div class="main-page" id="mainPage">
+
+<div class="main-title">
+KISAH KITA
+</div>
+
+<div class="main-subtitle">
+
+kadang sebuah cerita
+gak datang dari sesuatu yang besar.
+
+cuma dari satu rekomendasi film,
+satu obrolan kecil,
+lalu perlahan jadi sesuatu
+yang diam-diam selalu diingat.
+
+dan lucunya,
+beberapa orang memang hadir
+dengan cara sesederhana itu.
+
+</div>
+
+<button class="start-btn"
+onclick="openPassword()">
+
+mulai cerita
+
+</button>
+
+</div>
+
+<!-- =========================================================
+PASSWORD PAGE
+========================================================= -->
+
+<div class="password-page" id="passwordPage">
+
+<div class="password-box">
+
+<h2>
+untuk arlienn
+</h2>
+
+<p>
+Haiii Princess Ayenn atau aku pangil makaa
+Aku cuman mau bilang sesuatu......
+
+aku masih inget banget,
+semuanya dimulai
+karena satu film kecil yang kita bahas.
+
+</p>
+
+<input
+type="text"
+id="passwordInput"
+placeholder="film pertama yang kita bahas...">
+
+<button onclick="checkPassword()">
+
+buka cerita
+
+</button>
+
+<div class="result" id="result"></div>
+
+</div>
+
+</div>
+
+<!-- =========================================================
+STORY PAGE
+========================================================= -->
+<div class="story-page" id="storyPage">
+
+    <div class="story-box">
+        <div class="story-text" id="storyText">
+     Haiii Princess Ayenn atau aku pangil makaa
+     Aku cuman mau bilang sesuatu......
+     ...
+
+        </div>
+    </div>
+
+    <!-- TOMBOL LEWATI -->
+    <button onclick="skipStory()" class="skip-corner" id="skipBtn">
+        lewati ⏭
+    </button>
+
+</div>
+
+<!-- =========================================================
+MENU PAGE (VERSI PREMIUM)
+========================================================= -->
+<div class="menu-page" id="menuPage">
+
+<div class="menu-wrapper">
+
+    <div class="menu-title">
+        little memories
+    </div>
+
+    <div class="menu-grid">
+
+        <!-- MUSIC -->
+        <div class="menu-card" onclick="openMusicPage()">
+            <div class="menu-card-bg">
+                <img src="music.jpg" alt="Music">
+            </div>
+            <div class="menu-inner">
+                <h3>Music</h3>
+                <p>lagu-lagu favorit kamuu semua warna kayanya deh...kamu seneng gak bisa denger inii tiap hari?</p>
+                <span class="card-label">12 songs</span>
+            </div>
+        </div>
+
+        <!-- FILM -->
+        <div class="menu-card" onclick="openExtra('filmPage')">
+            <div class="menu-card-bg">
+                <img src="film.jpg" alt="Film">
+            </div>
+            <div class="menu-inner">
+                <h3>Film</h3>
+                <p>film yang jadi awal cerita kita</p>
+                <span class="card-label">memories</span>
+            </div>
+        </div>
+
+        <!-- Gallery -->
+<div class="menu-card" onclick="bukaGallery()">
+    <div class="menu-card-bg">
+        <img src="foto.jpg" alt="Gallery">
+    </div>
+    <div class="menu-inner">
+        <h3>Gallery</h3>
+        <p>momen-momen kecil yang aku simpan</p>
+        <span class="card-label">photos</span>
+    </div>
+</div>
+
+        <!-- SECRET -->
+        <div class="menu-card" onclick="openExtra('secretPage')">
+            <div class="menu-card-bg">
+                <img src="secret.jpg" alt="Secret">
+            </div>
+            <div class="menu-inner">
+                <h3>Secret</h3>
+                <p>sesuatu yang hanya untuk kamu</p>
+                <span class="card-label special">💗 only you</span>
+            </div>
+        </div>
+
+    </div>
+</div>
+</div>
+
+</div>
+
+<!-- =========================================================
+MUSIC PAGE
+========================================================= -->
+
+<div class="music-page" id="musicPage">
+
+<button class="back-btn"
+onclick="backToMenu()">
+
+kembali
+
+</button>
+
+<div class="music-header">
+
+<h1>
+favorite music
+</h1>
+
+<p>
+
+lagu-lagu ini akuu bikin sesuai warna favoritmuu 
+Saat aku membuat inii bikinya pusing banget
+tapii saat aku memikirkanmuu semua hal sulit ituu mulai menghilang meski dibantu dengan doa juga sih...hehehehe 
+selamat mendengarkan Makaa
+
+</p>
+
+</div>
+
+<div class="music-grid"></div>
+
+</div>
+
+<!-- HALAMAN FILM -->
+<div class="page" id="filmPage">
+    <button class="back-btn" onclick="backToMenu()">← KEMBALI</button>
+    
+    <div class="streaming-container">
+        <h2 class="stream-title">Trending Now</h2>
+        
+        <div class="movie-grid">
+            <!-- Film 1 -->
+            <div class="movie-card" onclick="openTrailer('GreenBook.mp4', 'Green Book')">
+                <div class="poster-wrapper">
+                    <img src="greenbook.jpg" alt="Film 1">
+                    <div class="play-overlay"><div class="play-icon">▶</div></div>
+                </div>
+                <div class="movie-detail">
+                    <h3>Green Book</h3>
+                    <p>2018 • Drama</p>
+                     <p>Film yang membuat kita kenal satu sama lainn</p>
+                </div>
+            </div>
+
+            <!-- Film 2 -->
+            <div class="movie-card" onclick="openTrailer('ToyStory5.mp4', 'Toy Story')">
+                <div class="poster-wrapper">
+                    <img src="ToyStory5.jpg" alt="Film 2">
+                    <div class="play-overlay"><div class="play-icon">▶</div></div>
+                </div>
+                <div class="movie-detail">
+                    <h3>Toy Story 5 </h3>
+                    <p>2026 • Cartoon</p>
+                    <p>1 bulan lagiiii</p>
+                </div>
+            </div>
+
+            <!-- Film 3 -->
+            <div class="movie-card" onclick="openTrailer('haryy2026.mp4', 'Harry Potter')">
+                <div class="poster-wrapper">
+                    <img src="haryy2026.jpg" alt="Film 3">
+                    <div class="play-overlay"><div class="play-icon">▶</div></div>
+                </div>
+                <div class="movie-detail">
+                    <h3>Harry Potter</h3>
+                    <p>2026 • Magic</p>
+                    <p>Kamuu harus nonton yahhh.....</p>
+                </div>
+            </div>
+
+            <!-- Film 4 -->
+            <div class="movie-card" onclick="openTrailer('avengersdoomsday.mp4', 'Avengers')">
+                <div class="poster-wrapper">
+                    <img src="avengersdoomsday.jpg" alt="Film 4">
+                    <div class="play-overlay"><div class="play-icon">▶</div></div>
+                </div>
+                <div class="movie-detail">
+                    <h3>Avenggers</h3>
+                    <p>2026 • Superhero</p>
+                    <p>Harus di Imaxxx Wajib</p>
+                </div>
+            </div>
+
+            <!-- Film 5 -->
+            <div class="movie-card" onclick="openTrailer('spiderman2026.mp4', 'Spiderman')">
+                <div class="poster-wrapper">
+                    <img src="spiderman2026.jpg" alt="Film 5">
+                    <div class="play-overlay"><div class="play-icon">▶</div></div>
+                </div>
+                <div class="movie-detail">
+                    <h3>Spiderman</h3>
+                    <p>2026 • Superhero</p>
+                    <p>Gak afdoll sih kalau gak nontoh hehehe......</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL TRAILER (Cukup Satu Untuk Semua Film) -->
+<div class="modal-video" id="videoModal">
+    <div class="modal-bg" onclick="closeTrailer()"></div>
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeTrailer()">&times;</span>
+        <div class="video-frame">
+            <video id="player" controls playsinline>
+                Format video tidak didukung.
+            </video>
+        </div>
+        <div class="modal-info">
+            <h2 id="modalTitle">Judul Film</h2>
+            <div class="badge">Official Trailer</div>
+            <p>Menampilkan cuplikan cinematic kualitas tinggi.</p>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- ================= GALLERY MASTERPIECE ================= -->
+<div id="photoPageSempurna" class="galeri-layar-penuh">
+    <button class="galeri-tombol-kembali" onclick="tutupGallery()">← KEMBALI</button>
+    
+    <div class="galeri-konten-utama">
+        <h2 class="galeri-judul-indah">A Box of Memories</h2>
+        <p class="galeri-subjudul">Mungki nanti sih kalau ada aku pajang disini....jadi kamu sukaa kisah mereka gak?</p>
+
+        <div class="galeri-susunan-foto">
+            <!-- BINGKAI 1 -->
+            <div class="galeri-bingkai-manis miring-kiri">
+                <div class="galeri-tempat-foto">
+                    <img src="Album1.jpg" alt="Memori 1">
+                </div>
+                <div class="galeri-teks-bawah">Kisah love spider</div>
+            </div>
+
+            <!-- BINGKAI 2 -->
+            <div class="galeri-bingkai-manis miring-kanan">
+                <div class="galeri-tempat-foto">
+                    <img src="Album2.jpg" alt="Memori 2">
+                </div>
+                <div class="galeri-teks-bawah">kisah love 2 hewan lucu</div>
+            </div>
+
+            <!-- BINGKAI 3 -->
+            <div class="galeri-bingkai-manis miring-kiri-dikit">
+                <div class="galeri-tempat-foto">
+                    <img src="Album3.jpg" alt="Memori 3">
+                </div>
+                <div class="galeri-teks-bawah">kisah cinta abadi...</div>
+            </div>
+
+            <!-- BINGKAI 4 -->
+            <div class="galeri-bingkai-manis miring-kanan-dikit">
+                <div class="galeri-tempat-foto">
+                    <img src="Album4.jpg" alt="Memori 4">
+                </div>
+                <div class="galeri-teks-bawah">Kisah Suatu hari nanti...</div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ================= END GALLERY ================= -->
+
+
+
+<!-- =========================================================
+SECRET PAGE
+========================================================= -->
+<div class="secret-page" id="secretPage">
+<button class="back-btn"
+onclick="backToMenu()">
+
+kembali
+</button>
+
+<div class="secret-box">
+
+<div class="secret-title">
+for you 💗
+</div>
+
+<div class="secret-sub">
+aku simpan satu pertanyaan kecil di sini...
+</div>
+
+<input
+type="text"
+id="secretInput"
+class="secret-input"
+placeholder="aplikasi pertama kita chat...">
+
+<button class="secret-btn" onclick="checkSecret()">
+buka rahasia
+</button>
+
+<!-- PILIHAN -->
+<div class="choice-box" id="choiceBox">
+
+<div class="choice-text">
+kalau aku chat kamu duluan...
+kamu risih gak?
+</div>
+
+<div class="choice-buttons">
+
+<button class="yes-btn" onclick="answerGood()">
+enggak 💗
+</button>
+
+<button class="no-btn" onclick="answerBad()">
+risih 😢
+</button>
+
+</div>
+
+<img id="secretGif" class="secret-gif">
+
+<div class="secret-result" id="secretResult"></div>
+
+<audio id="secretAudio"></audio>
+
+</div>
+
+</div>
+</div>
+</div>
+<script>
+
+/* =========================================================
+SONG DATA
+========================================================= */
+
+const songs = [
+
+{
+title:"Sunday Morning",
+artist:"Maroon 5",
+image:"maroon5.jpg",
+audio:"maroon5.mp3",
+mood:"soft morning vibes",
+quote:"some people feel like sunday morning."
+},
+
+{
+title:"Moral of the Story",
+artist:"Ashe",
+image:"moralofthestory.jpg",
+audio:"moralofthestory.mp3",
+mood:"late night feeling",
+quote:"every ending leaves a little light."
+},
+
+{
+title:"Hey Jude",
+artist:"The Beatles",
+image:"heyjude.jpg",
+audio:"heyjude.mp3",
+mood:"classic warm song",
+quote:"comfort sometimes comes softly."
+},
+
+{
+title:"Stand By Me",
+artist:"Oasis",
+image:"standbyme.jpg",
+audio:"standbyme.mp3",
+mood:"midnight comfort",
+quote:"stay a little longer tonight."
+},
+
+{
+title:"Always",
+artist:"Daniel Caesar",
+image:"always.jpg",
+audio:"always.mp3",
+mood:"slow calm energy",
+quote:"time feels slower with you."
+},
+
+{
+title:"Best Part",
+artist:"Daniel Caesar",
+image:"bestpart.jpg",
+audio:"bestpart.mp3",
+mood:"lovely warm night",
+quote:"you feel like the favorite part."
+},
+
+{
+title:"enough for you",
+artist:"Olivia Rodrigo",
+image:"enoughforyou.jpg",
+audio:"enoughforyou.mp3",
+mood:"lonely midnight",
+quote:"some feelings stay forever."
+},
+
+{
+title:"Secret Door",
+artist:"Arctic Monkeys",
+image:"secretdoor.jpg",
+audio:"secretdoor.mp3",
+mood:"dreamy atmosphere",
+quote:"quiet songs speak the loudest."
+},
+
+{
+title:"A Thousand Years",
+artist:"Christina Perri",
+image:"athousandyears.jpg",
+audio:"athousandyears.mp3",
+mood:"eternal love",
+quote:"some moments deserve forever."
+},
+
+{
+title:"Why'd You Only Call Me When You're High?",
+artist:"Arctic Monkeys",
+image:"whydyouonlycallmewhenyourehigh.jpg",
+audio:"whydyouonlycallmewhenyourehigh.mp3",
+mood:"dark late night",
+quote:"midnight always feels different."
+},
+
+{
+title:"Wonderwall",
+artist:"Oasis",
+image:"wonderwall.jpg",
+audio:"wonderwall.mp3",
+mood:"nostalgic feeling",
+quote:"maybe you're gonna be the one."
+},
+
+{
+title:"Kenangan Manis",
+artist:"Pamungkas",
+image:"kenanganmanis.jpg",
+audio:"kenanganmanis.mp3",
+mood:"sweet memories",
+quote:"beberapa kenangan gak pernah pergi."
+}
+
+];
+
+/* =========================================================
+RENDER MUSIC
+========================================================= */
+
+const musicGrid =
+document.querySelector(".music-grid");
+
+songs.forEach(song=>{
+
+const card =
+document.createElement("div");
+
+card.className =
+"song-card";
+
+card.innerHTML = `
+
+<div class="song-cover">
+
+<img
+src="${encodeURI(song.image)}"
+alt="${song.title}">
+
+<div class="song-overlay"></div>
+
+<div class="song-glow"></div>
+
+</div>
+
+<div class="song-info">
+
+<h2>${song.title}</h2>
+
+<span>${song.artist}</span>
+
+<div class="song-desc">
+
+lagu yang selalu punya suasana hangat,
+pelan,
+dan nyaman buat malam panjang.
+
+</div>
+
+<div class="song-quote">
+
+“${song.quote}”
+
+</div>
+
+</div>
+
+<div class="player">
+
+<div class="player-top">
+
+<div class="player-left">
+
+<div class="small-cover">
+
+<img
+src="${encodeURI(song.image)}">
+
+</div>
+
+<div class="player-text">
+
+<h4>${song.title}</h4>
+
+<p>${song.mood}</p>
+
+</div>
+
+</div>
+
+<button class="like-btn">
+
+♡
+
+</button>
+
+</div>
+
+<audio controls class="song-audio">
+
+<source
+src="${encodeURI(song.audio)}"
+type="audio/mp3">
+
+</audio>
+
+</div>
+
+`;
+
+musicGrid.appendChild(card);
+
+});
+
+/* =========================================================
+BACKGROUND MUSIC VIDEO
+========================================================= */
+
+const video =
+document.getElementById("bgVideo");
+
+const musicBtn =
+document.getElementById("musicBtn");
+
+let playing = false;
+
+video.volume = 0.25;
+
+musicBtn.addEventListener("click", async()=>{
+
+try{
+
+if(!playing){
+
+video.muted = false;
+
+await video.play();
+
+musicBtn.innerHTML = "❚❚";
+
+playing = true;
+
+}else{
+
+video.pause();
+
+musicBtn.innerHTML = "▶";
+
+playing = false;
+
+}
+
+}catch(err){
+
+console.log(err);
+
+}
+
+});
+
+/* =========================================================
+OPEN PASSWORD
+========================================================= */
+
+function openPassword(){
+
+document.getElementById("mainPage")
+.style.display = "none";
+
+document.getElementById("passwordPage")
+.style.display = "flex";
+
+video.muted = false;
+
+video.play().then(()=>{
+
+musicBtn.innerHTML = "❚❚";
+
+playing = true;
+
+}).catch(()=>{
+
+video.muted = true;
+
+video.play();
+
+});
+
+}
+
+/* =========================================================
+CHECK PASSWORD
+========================================================= */
+
+function checkPassword(){
+
+const input =
+document.getElementById("passwordInput")
+.value
+.toLowerCase()
+.trim();
+
+const result =
+document.getElementById("result");
+
+if(input === "green book"){
+
+result.innerHTML =
+"ternyata kamu masih inget juga :)";
+
+setTimeout(()=>{
+
+document.getElementById("passwordPage")
+.style.display = "none";
+
+startStory();
+
+},1500);
+
+}else{
+
+result.innerHTML =
+"coba inget lagi pelan-pelan ya.";
+
+}
+
+}
+
+/* =========================================================
+STORY
+========================================================= */
+
+const storyTexts = [
+
+"hai princess ayeenn... atau aku panggil makaa?",
+
+"aku gak nyangka awal chat kita cuma karena satu film.",
+
+"dan film itu ternyata green book.",
+
+"awalnya cuma bahas cerita kecil di dalam film.",
+
+"lalu obrolannya jadi panjang.",
+
+"dan anehnya... aku nyaman.",
+
+"cara kamu cerita selalu bikin suasana jadi beda.",
+
+"kadang random.",
+
+"kadang lucu.",
+
+"tapi selalu bikin pengen lanjut ngobrol.",
+
+"aku rasa beberapa orang memang datang tanpa direncanakan.",
+
+"lalu perlahan jadi bagian yang susah dilupain."
+
+];
+
+let storyIndex = 0;
+
+function startStory(){
+
+document.getElementById("storyPage")
+.style.display = "flex";
+
+showStory();
+
+}
+
+function showStory(){
+
+const text =
+document.getElementById("storyText");
+
+text.classList.remove("show");
+
+setTimeout(()=>{
+
+text.innerHTML =
+storyTexts[storyIndex];
+
+text.classList.add("show");
+
+},300);
+
+storyIndex++;
+
+if(storyIndex < storyTexts.length){
+
+setTimeout(showStory,4500);
+
+}else{
+
+setTimeout(()=>{
+
+openMenu();
+
+},5000);
+
+}
+
+}
+
+/* =========================================================
+MENU
+========================================================= */
+
+function openMenu(){
+
+document.getElementById("storyPage")
+.style.display = "none";
+
+document.getElementById("menuPage")
+.style.display = "flex";
+
+}
+
+function openMusicPage(){
+
+document.getElementById("menuPage")
+.style.display = "none";
+
+document.getElementById("musicPage")
+.style.display = "flex";
+
+}
+
+function backToMenu(){
+
+document.getElementById("musicPage")
+.style.display = "none";
+
+document.getElementById("menuPage")
+.style.display = "flex";
+
+}
+
+/* =========================================================
+LIKE BUTTON
+========================================================= */
+
+document.addEventListener("click",function(e){
+
+if(e.target.classList.contains("like-btn")){
+
+if(e.target.innerHTML === "♡"){
+
+e.target.innerHTML = "♥";
+
+e.target.style.color = "#ff8fbc";
+
+}else{
+
+e.target.innerHTML = "♡";
+
+e.target.style.color = "white";
+
+}
+
+}
+
+});
+
+/* =========================================================
+AUTO PAUSE AUDIO
+========================================================= */
+
+document.addEventListener("play",function(e){
+
+const audios =
+document.querySelectorAll(".song-audio");
+
+audios.forEach(audio=>{
+
+if(audio !== e.target){
+
+audio.pause();
+
+}
+
+});
+
+},true);
+
+function skipStory() {
+    storyRunning = false;     // menghentikan cerita
+    document.getElementById("storyPage").style.display = "none";
+    openMenu();               // langsung ke menu
+}
+
+/* ================= GLOBAL CONTROL ================= */
+let currentSecretAudio = null;
+
+// Fungsi pemhenti audio yang bersih dan menyeluruh
+function stopAudio() {
+    // 1. Berhentikan audio dari Secret Page (happy/sad)
+    if (currentSecretAudio) {
+        currentSecretAudio.pause();
+        currentSecretAudio.currentTime = 0;
+        currentSecretAudio = null;
+    }
+
+    // 2. Cari dan berhentikan SEMUA elemen audio lain di halaman (misal dari Music Page)
+    const allAudios = document.querySelectorAll('audio');
+    allAudios.forEach(audio => {
+        audio.pause();
+        audio.currentTime = 0;
+    });
+}
+
+/* ================= GIF TRANSITION ================= */
+function changeGifSmooth(img, src) {
+    img.style.display = "block";
+    img.style.opacity = 0;
+
+    setTimeout(() => {
+        img.src = src;
+        img.onload = () => {
+            img.style.opacity = 1;
+        };
+    }, 200);
+}
+
+/* ================= SECRET CHECK ================= */
+function checkSecret() {
+    const input = document.getElementById("secretInput").value.toLowerCase().trim();
+
+    if (input === "instagram") {
+        document.getElementById("choiceBox").style.display = "block";
+    } else {
+        alert("coba inget lagi tempat kita mulai ngobrol...");
+    }
+}
+
+/* ================= ANSWER GOOD ================= */
+function answerGood() {
+    stopAudio(); // Berhentikan lagu lain dulu
+
+    currentSecretAudio = new Audio("happy.mp3");
+    currentSecretAudio.play();
+
+    const gif = document.getElementById("secretGif");
+    const result = document.getElementById("secretResult");
+
+    changeGifSmooth(gif, "happymeow.gif");
+    result.innerHTML = "yaa... berarti aku boleh ya chat kamu terus 💗";
+}
+
+/* ================= ANSWER BAD ================= */
+function answerBad() {
+    stopAudio(); // Berhentikan lagu lain dulu
+
+    currentSecretAudio = new Audio("sad.mp3");
+    currentSecretAudio.play();
+
+    const gif = document.getElementById("secretGif");
+    const result = document.getElementById("secretResult");
+
+    changeGifSmooth(gif, "sadmeow.gif");
+    result.innerHTML = "oh... maaf ya kalau aku ganggu... aku pelan-pelan aja ya 😢";
+}
+
+/* Ganti semua fungsi backToMenu yang lama dengan ini */
+function backToMenu() {
+    stopAudio(); // Matikan lagu happy/sad/musik lainnya
+
+    // Daftar semua halaman yang mungkin terbuka
+    const extraPages = ["musicPage", "filmPage", "photoPage", "secretPage"];
+    
+    extraPages.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.style.display = "none";
+    });
+
+    // Tampilkan kembali menu utama
+    document.getElementById("menuPage").style.display = "flex";
+
+    // Reset isi Secret Page agar bersih saat dibuka lagi nanti
+    const choiceBox = document.getElementById("choiceBox");
+    if(choiceBox) choiceBox.style.display = "none";
+    
+    const resultText = document.getElementById("secretResult");
+    if(resultText) resultText.innerHTML = "";
+    
+    const gif = document.getElementById("secretGif");
+    if(gif) {
+        gif.style.display = "none";
+        gif.src = "";
+    }
+}
+
+/* Tambahkan ini di dalam <script> */
+function openExtra(id) {
+    // Sembunyikan menu utama
+    document.getElementById("menuPage").style.display = "none";
+    
+    // Ambil halaman target (filmPage/photoPage/secretPage)
+    const targetPage = document.getElementById(id);
+    
+    if (targetPage) {
+        targetPage.style.display = "flex"; // Munculkan dengan flex agar rapi ke tengah
+    }
+}
+
+function openTrailer(videoSource, title) {
+    const modal = document.getElementById('videoModal');
+    const player = document.getElementById('player');
+    const titleEl = document.getElementById('modalTitle');
+    
+    titleEl.innerText = title;
+    player.src = videoSource; // Mengganti sumber video secara dinamis
+    
+    modal.style.display = 'flex';
+    player.load(); // Memuat video baru
+    player.play(); // Memutar otomatis
+}
+
+function closeTrailer() {
+    const modal = document.getElementById('videoModal');
+    const player = document.getElementById('player');
+    
+    modal.style.display = 'none';
+    player.pause(); 
+    player.src = ""; // Menghapus sumber agar tidak berjalan di background
+}
+
+
+// Membuka Galeri Sempurna
+function bukaGallery() {
+    const galeri = document.getElementById('photoPageSempurna');
+    if (galeri) {
+        galeri.style.display = 'block';
+        window.scrollTo(0, 0); // Pastikan layar ada di posisi atas
+    }
+}
+
+// Menutup Galeri Sempurna
+function tutupGallery() {
+    const galeri = document.getElementById('photoPageSempurna');
+    if (galeri) {
+        galeri.style.display = 'none';
+    }
+}
+
+</script>
+
+</body>
+</html>
